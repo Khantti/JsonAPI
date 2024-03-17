@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Randomuser API From URL 6 with jQuery Ajax</title>
+    <style type="text/css">
+        body{
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            width: 300px;
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Using Axios</h3>
+        <button type="button" id="btn">Click Me</button>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+
+        var getbtn = document.getElementById('btn');
+
+        getbtn.addEventListener('click',function(){
+            loaddata();
+        });
+
+        // function loaddata(){
+
+        //     var url = 'https://dummyjson.com/products';
+        //     fetch(url).then(function(response){
+        //         return response.json();
+        //     }).then(function(data){
+        //         // console.log(data);
+        //         // console.log(data.products);
+
+        //         data.products.forEach(function(val){
+        //             // console.log(val);
+        //             console.log(val.id,val.title,val.price);
+        //         });
+        //     }).catch(function(err){
+        //         console.log(err);
+        //     });
+        // }
+
+        // function loaddata(){
+
+        //     var url = 'https://dummyjson.com/products';
+
+        //     $.ajax({
+        //         method: "GET",
+        //         url:url,
+        //         dataType: "json"
+        //     }).done((data)=>{
+        //         // console.log(data);
+        //         // console.log(data.products);
+
+        //         data.products.forEach(function(val){
+        //             // console.log(val);
+        //             console.log(val.id,val.title,val.price);
+        //         });
+                
+        //     }).fail(()=>{
+        //         console.log('error');
+        //     });
+        // }
+
+        function loaddata(){
+
+            var url = 'https://dummyjson.com/products';
+
+            axios({
+                method:"GET",
+                url:url
+            }).then((response)=>{
+                console.log(response.data);
+
+                console.log(response.data.products);
+
+                response.data.products.forEach(function(val){
+                    // console.log(val);
+                    console.log(val.id,val.title,val.price);
+                });
+
+            }).catch((err)=>{
+                console.log(err);
+            });
+        }
+
+        
+        
+    </script>
+</body>
+</html>
+
+<!-- https://dummyjson.com -->
+<!-- https://ipregistry.co/ -->
+
+
+

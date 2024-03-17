@@ -1,0 +1,28 @@
+=> CORS
+Cross-origin Resource Sharing (CORS)
+
+-CORS is a mechanism for integrating applications
+-CORS defines arer loaded in ine domain to interest with different domain
+-CORS allows client browser to check with third-party servers(if request auth before data transfer)
+-To protect cross site request forgery(csrf)
+
+= Same origin policy
+
+URL                                              Outcome                        Reason
+http://dltbank.com/transfer/create.html          Same origin
+http://dltbank.com/transfer/report/check.html    Same origin                    only path different
+http://mm.dltbank.com/transfer/report/check.html Different origin               Different Protocol
+http://tha.dltbank.com:81/transfer/create.html   Different origin               Different Port (http:// is port 80 by default)
+http://news.dltbank.com:81/article.html          Different origin               different host
+
+Same-origin policy is highly secure but inflexible for geniune use cases
+CORS is an extension of the same origin policy
+you need CORS when u need to pull data from external API that are public or authorized or (authorized third-party access)
+
+=> xmlhttp.readystate === 4
+
+0 - UNSENT open() has not been called yet
+1 - OPENED send() has been called
+2 - HEADERS_RECEIVED send() has been called, and headers and status are available
+3 - LOADING downloading, responseText holds partial datas:
+4 - DONE the operation is completed
